@@ -8,7 +8,7 @@
 })
 export class ValueComponent implements OnInit {
 values: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient)  { }
 
   ngOnInit() {
     this.getValues();
