@@ -8,19 +8,28 @@ import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { ListComponent } from './list/list.component';
+import { MemberListComponent } from './member-list/member-list.component';
+import { MessagesComponent } from './messages/messages.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutes } from './routes';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
       RegisterComponent,
-      HomeComponent
+      HomeComponent,
+      ListComponent,
+      MemberListComponent,
+      MessagesComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+      RouterModule.forRoot(AppRoutes)
    ],
    providers: [
       AuthService
