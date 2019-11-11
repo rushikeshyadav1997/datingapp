@@ -19,7 +19,13 @@ getUsers(): Observable<User[]> {
 getUser(id): Observable<User> {
    return this.http.get<User>(this.baseUrl + 'user/' + id);
   }
-updateUser (id: number , user: User) : Observable<User> {
+updateUser (id: number , user: User): Observable<User> {
   return this.http.put<User>(this.baseUrl + 'user/' + id, user);
+}
+setMainPhoto(userId: number,id :number){
+  return this.http.post(this.baseUrl + 'user/' +userId +'/photos/'+id +'/setMain',{});
+}
+deletePhoto(userid:number,id :number){
+return this.http.delete(this.baseUrl +'user/'+ userid +'/photos/' +id);
 }
 }
