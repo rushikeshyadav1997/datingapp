@@ -21,14 +21,13 @@ constructor(private http: HttpClient) { }
 changeMemberPhoto(photoUrl: string) {
   this.photoUrl.next(photoUrl);
 }
-login(model: any)
-{
+login(model: any) {
   return this.http.post(this.baseurl + 'login', model).pipe(
     map((response: any) => {
       const user = response;
       if (user) {
         localStorage.setItem('token', user.token);
-        localStorage.setItem('user',JSON.stringify(user.user));
+        localStorage.setItem('user', JSON.stringify(user.user));
         this.decodedToken =this.jwtHelper.decodeToken(user.token);
         this.currentUser =user.user;
         this.changeMemberPhoto(this.currentUser.photoUrl);
@@ -36,12 +35,12 @@ login(model: any)
     })
   );
 }
-register(model: any){
-  return this.http.post(this.baseurl + 'register', model);
+register(user: User){
+  return this.http.post(this.baseurl + 'register', user);
 
 }
 loggedIn(){
-  const token =localStorage.getItem('token');
+  const token = localStorage.getItem('token');
   return !this.jwtHelper.isTokenExpired(token);
 }
 }
