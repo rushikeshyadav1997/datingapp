@@ -10,6 +10,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using AutoMapper;
 using DatingApp.API.Helpers;
+using DatingApp.API.Helper;
 
 namespace DatingApp.API
 {
@@ -48,6 +49,7 @@ namespace DatingApp.API
 
                };
            });
+           services.AddScoped<LogUserActivity>();
      
         }
 
