@@ -9,7 +9,6 @@ import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
-import { ListComponent } from './list/list.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
@@ -29,6 +28,10 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
+import { ListsResolver } from './_resolvers/lists.resolver';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -45,13 +48,14 @@ export class CustomHammerConfig extends HammerGestureConfig {
       NavComponent,
       RegisterComponent,
       HomeComponent,
-      ListComponent,
+      ListsComponent,
       MemberListComponent,
       MessagesComponent,
       MembesCardComponent,
       MemberDetailsComponent,
       MemberEditComponent,
       PhotoEditorComponent,
+      MemberMessagesComponent,
       TimeAgoPipe
    ],
    imports: [
@@ -84,6 +88,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
+      ListsResolver,
+      MessagesResolver,
       PreventUnsavedChanges,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
 
